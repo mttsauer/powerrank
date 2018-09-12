@@ -132,7 +132,6 @@ rank = function(data = {}) {
   data.sort(function(a, b) {
     return a.rank - b.rank;
   });
-  console.log("completing rank");
 };
 
 generateUrl = function(leagueId, seasonId, matchupPeriodId) {
