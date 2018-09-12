@@ -1,0 +1,54 @@
+td form {
+  height: 0;
+}
+th {
+  text-align: center;
+}
+table tr th,
+table tr td {
+  padding: 0;
+  margin: 0;
+}
+.smallItalic {
+  font-size: 0.8em;
+  font-weight: italic;
+  float: right;
+}
+tr:nth-child(odd) {
+  background-color: #eee;
+}
+tr:nth-child(even) {
+  background-color: #fff;
+}
+th {
+  background-color: green;
+  color: white;
+}
+
+td.center {
+  text-align: center;
+}
+
+.hiddenOverflow div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hiddenOverflow div:hover {
+  overflow: visible;
+  text-overflow: inherit;
+}
+table.scrollTable thead th,
+table.scrollTable tbody td {
+  width: 40px;
+  padding: 0 10px;
+}
+table.scrollTable thead th + th,
+table.scrollTable tbody td + td,
+table.scrollTable tbody td + td div {
+  width: 120px;
+}
+table.scrollTable thead th + th + th,
+table.scrollTable tbody td + td + td {
+  width: 85px;
+}

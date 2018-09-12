@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h3 Power Rankings
+  div.scrollTableContainer
+    table#powerRankings.scrollTable
+      thead
+        tr
+          th Rank
+          th Team
+          th Points
+          th Record
+          th Breakdown
+          th Power
+      tbody
+        each rank, i in ranks
+          tr
+            td #{rank.rank}
+            td.hiddenOverflow 
+              div #{rank.name}
+            td #{rank.pointsRank} 
+              span.smallItalic (#{rank.points})
+            td #{rank.recordRank}  
+              span.smallItalic (#{rank.record})
+            td #{rank.breakdownRank}  
+              span.smallItalic (#{rank.breakdown})
+            td.center #{rank.powerPoints}
+
+    
