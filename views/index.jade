@@ -2,4 +2,11 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+
+  form#form(method="POST" action="/powerrank")
+      div.form-group
+        label.col-2.col-form-label(for="leagueId") ESPN League Id:
+        div.col-10.input-group
+          input#website.form-control.form-control-lg(type="text", placeholder="82288", name="leagueId", value=website)
+      div.col-12
+        button.btn.btn-primary.form-control.form-control-lg(type="submit" name="action" value="go") Go!
