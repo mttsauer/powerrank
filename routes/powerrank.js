@@ -10,25 +10,26 @@ router.post('/', function (req, res, next) {
 });
 
 /* GET users listing. */
-router.get("/:leagueId/:seasonId/:matchupPeriodId", function (req, res, next) {
+router.get("/:leagueId/:seasonId/:matchupPeriodId?", function (req, res, next) {
   var teams = {};
+  var url = generateUrl(
+    req.params.leagueId,
+    req.params.seasonId,
+    req.params.matchupPeriodId
+  );
   superagent
-    .get(
-      generateUrl(
-        req.params.leagueId,
-        req.params.seasonId,
-        req.params.matchupPeriodId
-      )
-    )
+    .get(url)
     .end((err, response) => {
       if (err) {
-        console.log(err);
-        res.send(err);
+        console.log("Error getting " + url, err);
+        res.send( err);
         return;
       }
       matchupPeriod = jsonQuery("scoreboard.matchupPeriodId", {
         data: response.body
       }).value;
+
+      if(!req.params.matchupPeriodId) matchupPeriod--;
 
       teams = jsonQuery("scoreboard.matchups.teams", { data: response.body })
         .value;
@@ -133,9 +134,9 @@ function generateUrl(leagueId, seasonId, matchupPeriodId) {
     "http://games.espn.com/ffl/api/v2/scoreboard?leagueId=" +
     leagueId +
     "&seasonId=" +
-    seasonId +
+    seasonId + (matchupPeriodId ? 
     "&matchupPeriodId=" +
-    matchupPeriodId
+    matchupPeriodId :"")
   );
 };
 
