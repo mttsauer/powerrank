@@ -19,7 +19,7 @@ block content
             td.hiddenOverflow 
               div #{rank.name}
             td #{rank.pointsRank} 
-              span.smallItalic (#{rank.points})
+              span.smallItalic (#{rank.points.toFixed(2)})
             td #{rank.recordRank}  
               span.smallItalic (#{rank.record})
             td #{rank.breakdownRank}  
