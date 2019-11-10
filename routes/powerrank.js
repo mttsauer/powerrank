@@ -6,7 +6,7 @@ const asyncHandler = require("express-async-handler");
 var router = express.Router();
 
 router.post('/', function (req, res, next) {
-  res.redirect('/powerrank/' + req.body.leagueId + '/2018/1');
+  res.redirect('/powerrank/' + req.body.leagueId + '/2019/1');
 });
 
 /* GET users listing. */
